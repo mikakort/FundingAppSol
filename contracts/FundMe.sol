@@ -9,7 +9,7 @@ import "./PriceConverter.sol";
 error FundMe__NotOwner();
 
 /**@title A sample Funding Contract
- * @author Patrick Collins
+ * @author M.K
  * @notice This contract is for creating a sample funding contract
  * @dev This implements price feeds as our library
  */
@@ -18,7 +18,7 @@ contract FundMe {
     using PriceConverter for uint256;
 
     // State variables
-    uint256 public constant MINIMUM_USD = 50 * 10**18;
+    uint256 public constant MINIMUM_USD = 50 * 10 ** 18;
     address private immutable i_owner;
     address[] private s_funders;
     mapping(address => uint256) private s_addressToAmountFunded;
@@ -77,7 +77,7 @@ contract FundMe {
 
     function cheaperWithdraw() public onlyOwner {
         address[] memory funders = s_funders;
-        // mappings can't be in memory, sorry!
+        // mappings can't be in memory
         for (
             uint256 funderIndex = 0;
             funderIndex < funders.length;
@@ -96,11 +96,9 @@ contract FundMe {
      *  @param fundingAddress the address of the funder
      *  @return the amount funded
      */
-    function getAddressToAmountFunded(address fundingAddress)
-        public
-        view
-        returns (uint256)
-    {
+    function getAddressToAmountFunded(
+        address fundingAddress
+    ) public view returns (uint256) {
         return s_addressToAmountFunded[fundingAddress];
     }
 
