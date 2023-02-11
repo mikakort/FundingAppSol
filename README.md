@@ -1,4 +1,4 @@
-# Hardhat Fund Me
+# Hardhat Fund Me by fcc
 
 *This repo has been updated to work with Goerli over Rinkeby.*
 
